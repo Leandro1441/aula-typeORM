@@ -1,11 +1,12 @@
-import { criarEmpresa, buscarEmpresa, alterarEmpresa, deletarEmpresa } from './empresa.controller'
+import { criarEmpresa, buscarEmpresas, buscarUmaEmpresa, alterarEmpresa, deletarEmpresa } from './empresa.controller'
 import express from 'express'
 
 const empresaRouter = express.Router()
 
-empresaRouter.get('/', buscarEmpresa)
+empresaRouter.get('/', buscarEmpresas)
+empresaRouter.get('/:id', buscarUmaEmpresa)
 empresaRouter.post('/', criarEmpresa)
-empresaRouter.patch('/', alterarEmpresa)
-empresaRouter.delete('/', deletarEmpresa)
+empresaRouter.patch('/:id', alterarEmpresa)
+empresaRouter.delete('/:id', deletarEmpresa)
 
 export default empresaRouter
